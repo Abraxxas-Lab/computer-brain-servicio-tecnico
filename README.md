@@ -44,3 +44,5 @@ El sitio debe ejecutarse como aplicación Node.js para que `/api/reviews` funcio
 El workflow `.github/workflows/deploy-pages.yml` publica `index.html` y `KomikaAxis.ttf` al hacer push a `main`. En **Settings > Pages**, selecciona **GitHub Actions** como origen.
 
 Para que las reseñas sigan funcionando desde Pages, aloja también el servidor Node en un servicio público. Configura en ese servicio `FRONTEND_ORIGIN` con el origen de Pages (por ejemplo, `https://tu-usuario.github.io`) y `HOST=0.0.0.0`. En **Settings > Secrets and variables > Actions > Variables**, crea `REVIEWS_API_BASE` con la URL raíz del servidor Node, sin `/api/reviews`. Las credenciales OAuth van únicamente en el servicio Node, no en GitHub Pages.
+
+Después de cambiar `REVIEWS_API_BASE`, vuelve a ejecutar **Deploy GitHub Pages** desde la pestaña **Actions** para reconstruir el sitio con esa URL.

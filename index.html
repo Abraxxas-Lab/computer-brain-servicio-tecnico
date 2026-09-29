@@ -458,6 +458,14 @@
     }
 
     async function refreshReviews() {
+      if (!reviewApiBase && window.location.hostname.endsWith(".github.io")) {
+        reviewAverage.textContent = "—";
+        reviewCount.textContent = "Sincronización pendiente";
+        reviewList.replaceChildren();
+        reviewStatus.textContent = "La conexión automática con Google aún no está configurada. Consulta las opiniones en Google Maps.";
+        return;
+      }
+
       try {
         const response = await fetch(`${reviewApiBase}/api/reviews`, { headers: { Accept: "application/json" }, cache: "no-store" });
         const data = await response.json().catch(() => ({}));
