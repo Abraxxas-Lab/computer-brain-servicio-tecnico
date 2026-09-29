@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static site
+        env:
+          REVIEWS_API_BASE: ${{ vars.REVIEWS_API_BASE }}
+        run: |
+          mkdir -p public
+          cp KomikaAxis.ttf public/KomikaAxis.ttf
+          if [ -n "$REVIEWS_API_BASE" ]; then
+            sed "s|<meta name=\"reviews-api-base\" content=\"\">|<meta name=\"reviews-api-base\" content=\"$REVIEWS_API_BASE\">|" index.html > public/index.html
+          else
+            cp index.html public/index.html
+          fi
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
