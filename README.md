@@ -46,3 +46,7 @@ El workflow `.github/workflows/deploy-pages.yml` publica `index.html` y `KomikaA
 Para que las reseñas sigan funcionando desde Pages, aloja también el servidor Node en un servicio público. Configura en ese servicio `FRONTEND_ORIGIN` con el origen de Pages (por ejemplo, `https://tu-usuario.github.io`) y `HOST=0.0.0.0`. En **Settings > Secrets and variables > Actions > Variables**, crea `REVIEWS_API_BASE` con la URL raíz del servidor Node, sin `/api/reviews`. Las credenciales OAuth van únicamente en el servicio Node, no en GitHub Pages.
 
 Después de cambiar `REVIEWS_API_BASE`, vuelve a ejecutar **Deploy GitHub Pages** desde la pestaña **Actions** para reconstruir el sitio con esa URL.
+
+## SEO y buscadores
+
+El sitio incluye título y descripción específicos, URL canónica, datos estructurados `LocalBusiness`, `robots.txt` y `sitemap.xml`. Para solicitar indexación, verifica `https://abraxxas-lab.github.io/computer-brain-servicio-tecnico/` en Google Search Console y envía `https://abraxxas-lab.github.io/computer-brain-servicio-tecnico/sitemap.xml`. La indexación y la posición dependen de Google; estos ajustes ayudan a descubrir y entender la página, pero no garantizan aparecer en primer lugar.
