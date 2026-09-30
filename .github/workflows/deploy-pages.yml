@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir -p public
           cp KomikaAxis.ttf public/KomikaAxis.ttf
-          cp computer-brain-logo.jpg public/computer-brain-logo.jpg
+          cp "COMPUTER BRAIN CORTADO.png" "public/COMPUTER BRAIN CORTADO.png"
           cp sitemap.xml public/
           if [ -n "$REVIEWS_API_BASE" ]; then
             sed "s|<meta name=\"reviews-api-base\" content=\"\">|<meta name=\"reviews-api-base\" content=\"$REVIEWS_API_BASE\">|" index.html > public/index.html
