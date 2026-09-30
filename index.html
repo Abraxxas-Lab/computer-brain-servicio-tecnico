@@ -6,6 +6,10 @@
   <meta name="theme-color" content="#f7f5fa">
   <meta name="reviews-api-base" content="">
   <meta name="description" content="Servicio técnico para computadores y consolas de videojuegos. Cuéntanos qué le pasa a tu equipo y solicita un diagnóstico.">
+  <meta property="og:title" content="Computer Brain | Servicio técnico">
+  <meta property="og:description" content="Servicio técnico para computadores y consolas de videojuegos en Suba, Bogotá.">
+  <meta property="og:image" content="https://abraxxas-lab.github.io/computer-brain-servicio-tecnico/computer-brain-logo.jpg">
+  <link rel="icon" type="image/jpeg" href="./computer-brain-logo.jpg">
   <title>Computer Brain | Servicio técnico</title>
   <link rel="preconnect" href="https://images.unsplash.com">
   <style>
@@ -43,7 +47,8 @@
     .topbar { height: 82px; display: flex; align-items: center; border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
-    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; background: var(--lavender); border: 1px solid var(--ink); font-family: var(--mono); font-size: 15px; font-weight: 500; }
+    .brand-mark { width: 44px; height: 44px; display: grid; place-items: center; overflow: hidden; background: transparent; }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .brand-name { font-size: 15px; font-weight: 800; line-height: 1.15; }
     .brand-name span { display: block; margin-top: 4px; font-family: var(--mono); font-size: 9px; font-weight: 400; letter-spacing: 0; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
@@ -189,7 +194,7 @@
     @media (max-width: 430px) {
       .wrap { width: calc(100% - 32px); }
       .brand-name { font-size: 12px; }
-      .brand-mark { width: 34px; height: 34px; }
+      .brand-mark { width: 38px; height: 38px; }
       .nav-links { gap: 10px; }
       .nav-links a { font-size: 9px; }
       .nav-cta { padding-inline: 9px; font-size: 9px; }
@@ -212,7 +217,7 @@
   <header class="topbar" id="inicio">
     <nav class="nav wrap" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Computer Brain, inicio">
-        <span class="brand-mark" aria-hidden="true">CB</span>
+        <span class="brand-mark"><img src="./computer-brain-logo.jpg" alt="" width="44" height="44" fetchpriority="high" decoding="async"></span>
         <span class="brand-name">COMPUTER BRAIN<span>Servicio técnico</span></span>
       </a>
       <div class="nav-links">
